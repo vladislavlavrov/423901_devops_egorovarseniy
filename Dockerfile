@@ -14,19 +14,19 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Calculator.csproj", "."]
-RUN dotnet restore "./Calculator.csproj"
+COPY ["4_Calculator.csproj", "."]
+RUN dotnet restore "./4_Calculator.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "./Calculator.csproj" -c %BUILD_CONFIGURATION% -o /app/build
+RUN dotnet build "./4_Calculator.csproj" -c %BUILD_CONFIGURATION% -o /app/build
 
 # Этот этап используется для публикации проекта службы, который будет скопирован на последний этап
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Calculator.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./4_Calculator.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
 
 # Этот этап используется в рабочей среде или при запуске из VS в обычном режиме (по умолчанию, когда конфигурация отладки не используется)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Calculator.dll"]
+ENTRYPOINT ["dotnet", "4_Calculator.dll"]
