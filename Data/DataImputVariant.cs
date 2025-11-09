@@ -1,0 +1,16 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace _4_Calculator.Data;
+public class DataImputVariant
+{
+    [Key]
+    public int ID_DataInputVariant { get; set; }
+    [Column(TypeName = "carchar(128)")]
+    public string? Operand_1 { get; set; }
+    [Column(TypeName = "carchar(128)")]
+    public string? Operand_2 { get; set; }
+    [Column(TypeName = "carchar(128)")]
+    public string? Type_operation { get; set; }
+}

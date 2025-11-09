@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using _4_Calculator.Data;
 using Calculator.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,11 @@ namespace Calculator.Controllers
 {
     public class HomeController : Controller
     {
+        private CalculatorContext _context;
+        public HomeController(CalculatorContext context)
+        { 
+            _context = context;
+        }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -56,6 +62,14 @@ namespace Calculator.Controllers
             {
                 model.ErrorMessage = $"Ошибка: {ex.Message}";
             }
+
+            DataImputVariant dataImputVariant = new DataImputVariant();
+            dataImputVariant.Operand_1 = Number1.ToString();
+            dataImputVariant.Operand_2 = Number2.ToString();
+            dataImputVariant.Type_operation = Operation.ToString();
+            
+            _context.DataImputVariants.Add( dataImputVariant );
+            _context.SaveChanges();
 
             return View(model);
         }
