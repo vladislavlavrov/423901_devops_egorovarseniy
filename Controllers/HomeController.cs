@@ -3,7 +3,7 @@ using _4_Calculator.Data;
 using Calculator.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Calculator.Controllers
+namespace Controllers
 {
     public class HomeController : Controller
     {
