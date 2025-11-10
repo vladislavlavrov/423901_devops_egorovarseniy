@@ -1,4 +1,5 @@
 using _4_Calculator.Data;
+using Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -22,8 +23,6 @@ namespace Calculator
             });
             builder.Services.AddRazorPages();
             var app = builder.Build();
-            
-
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

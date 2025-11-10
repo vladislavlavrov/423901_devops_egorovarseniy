@@ -9,12 +9,13 @@ namespace Controllers
     public class HomeController : Controller
     {
         private CalculatorContext _context;
+        private readonly ILogger<HomeController> _logger;
         public HomeController(CalculatorContext context, ILogger<HomeController> logger)
         { 
             _context = context;
             _logger = logger;
         }
-        private readonly ILogger<HomeController> _logger;
+
 
         public IActionResult Index()
         {
