@@ -1,23 +1,20 @@
-using System.Diagnostics;
 using _4_Calculator.Data;
 using Calculator.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace Controllers
 {
     public class HomeController : Controller
     {
         private CalculatorContext _context;
-        public HomeController(CalculatorContext context)
+        public HomeController(CalculatorContext context, ILogger<HomeController> logger)
         { 
             _context = context;
-        }
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
             _logger = logger;
         }
+        private readonly ILogger<HomeController> _logger;
 
         public IActionResult Index()
         {
