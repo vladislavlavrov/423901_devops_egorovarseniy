@@ -1,6 +1,6 @@
 services: 
  mariadb:
- container_name: web-mariadb-04
+ container_name: 4_calculator
  hostname: mariadb
  image: mariadb:10.5
  restart: always
