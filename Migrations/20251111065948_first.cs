@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _4_Calculator.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,11 +20,11 @@ namespace _4_Calculator.Migrations
                 {
                     ID_DataInputVariant = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Operand_1 = table.Column<string>(type: "carchar(128)", nullable: true)
+                    Operand_1 = table.Column<string>(type: "varchar(128)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Operand_2 = table.Column<string>(type: "carchar(128)", nullable: true)
+                    Operand_2 = table.Column<string>(type: "varchar(128)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Type_operation = table.Column<string>(type: "carchar(128)", nullable: true)
+                    Type_operation = table.Column<string>(type: "varchar(128)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>

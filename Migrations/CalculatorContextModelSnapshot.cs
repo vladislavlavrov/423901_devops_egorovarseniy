@@ -30,13 +30,13 @@ namespace _4_Calculator.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID_DataInputVariant"));
 
                     b.Property<string>("Operand_1")
-                        .HasColumnType("carchar(128)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Operand_2")
-                        .HasColumnType("carchar(128)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Type_operation")
-                        .HasColumnType("carchar(128)");
+                        .HasColumnType("varchar(128)");
 
                     b.HasKey("ID_DataInputVariant");
 

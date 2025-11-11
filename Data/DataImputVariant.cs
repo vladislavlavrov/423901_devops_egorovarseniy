@@ -7,10 +7,10 @@ public class DataImputVariant
 {
     [Key]
     public int ID_DataInputVariant { get; set; }
-    [Column(TypeName = "carchar(128)")]
+    [Column(TypeName = "varchar(128)")]
     public string? Operand_1 { get; set; }
-    [Column(TypeName = "carchar(128)")]
+    [Column(TypeName = "varchar(128)")]
     public string? Operand_2 { get; set; }
-    [Column(TypeName = "carchar(128)")]
+    [Column(TypeName = "varchar(128)")]
     public string? Type_operation { get; set; }
 }
