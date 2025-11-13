@@ -1,4 +1,5 @@
 using _4_Calculator.Data;
+using Confluent.Kafka;
 using Calculator.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
