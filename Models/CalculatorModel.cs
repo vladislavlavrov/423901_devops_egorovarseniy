@@ -1,4 +1,4 @@
-﻿namespace Calculator.Models
+﻿namespace _4_Calculator.Models
 {
     public class CalculatorModel
     {

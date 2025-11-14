@@ -5,7 +5,7 @@ namespace _4_Calculator.Data
 {
     public class CalculatorContext: DbContext
     {
-        public DbSet<DataImputVariant> DataImputVariants { get; set; }
+        public DbSet<DataInputVariant> DataInputVariants { get; set; }
 
         public CalculatorContext(DbContextOptions<CalculatorContext> options) : base(options)
         {

@@ -1,7 +1,9 @@
 using _4_Calculator.Data;
-using Controllers;
+using _4_Calculator.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Confluent.Kafka;
+using _4_Calculator.Services;
 
 namespace Calculator
 {
@@ -22,6 +24,13 @@ namespace Calculator
                 Version(10, 5, 15)));
             });
             builder.Services.AddRazorPages();
+
+            builder.Services.AddHttpClient();
+
+            builder.Services.AddHostedService<KafkaConsumerService>();
+            builder.Services.AddSingleton<KafkaProducerHandler>();
+            builder.Services.AddSingleton<KafkaProducerService<Null, string>>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
