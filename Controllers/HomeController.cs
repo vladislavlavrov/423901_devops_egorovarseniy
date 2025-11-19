@@ -42,8 +42,9 @@ namespace _4_Calculator.Controllers
             };
 
             await SendDataToKafka(dataInputVariant);
+            return View(dataInputVariant);
 
-            return RedirectToAction(nameof(Calculator));
+            ///return RedirectToAction(nameof(Calculator));
         }
         public IActionResult Callback([FromBody] DataInputVariant inputData)
         {

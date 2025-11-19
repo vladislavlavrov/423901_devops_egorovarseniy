@@ -4,13 +4,13 @@ namespace _4_Calculator.Models
 {
     public enum Operation
     {
-        [Display(Name = "Сложение")]
+        [Display(Name = "+ (Сложение)")]
         Add = 1,
-        [Display(Name = "Вычитание")]
+        [Display(Name = "- (Вычитание)")]
         Subtract = 2,
-        [Display(Name = "Умножение")]
+        [Display(Name = "* (Умножение)")]
         Multiply = 3,
-        [Display(Name = "Деление")]
+        [Display(Name = "/ (Деление)")]
         Divide = 4
     }
 }
