@@ -28,7 +28,11 @@ namespace _4_Calculator.Controllers
         [HttpGet]
         public IActionResult Calculator()
         {
-            return View(new CalculatorModel());
+            var data = _context.DataInputVariants
+                .OrderByDescending(x => x.ID_DataInputVariant)
+                .ToList();
+
+            return View(data);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
