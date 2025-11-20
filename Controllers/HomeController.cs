@@ -25,13 +25,10 @@ namespace _4_Calculator.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult Calculator()
         {
-            var data = _context.DataInputVariants
-                .OrderByDescending(x => x.ID_DataInputVariant)
-                .ToList();
-
-            return View(data);
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
