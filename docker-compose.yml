@@ -1,0 +1,7 @@
+﻿ services:
+  web:
+    container_name: 4_calculator-jenkins
+    hostname: app
+    build: .
+    ports:
+      - "0.0.0.0:5204:5004"
