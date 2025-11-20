@@ -25,7 +25,6 @@ namespace _4_Calculator.Controllers
         {
             return View();
         }
-        [HttpGet]
         public IActionResult Calculator()
         {
             var data = _context.DataInputVariants
