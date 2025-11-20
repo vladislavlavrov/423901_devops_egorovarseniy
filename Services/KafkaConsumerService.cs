@@ -59,7 +59,7 @@ namespace _4_Calculator.Services
                     var result = CalculatorLibrary.CalculateOperation(inputData.Operand_1, inputData.Operand_2, inputData.Type_operation);
                     inputData.Result = result.ToString();
                     var httpClient = _clientFactory.CreateClient();
-                    await httpClient.PostAsJsonAsync($"http://localhost:5004/4_Calculator/Callback", inputData);
+                    await httpClient.PostAsJsonAsync($"http://localhost:5004/Calculator/Callback", inputData);
                     Console.WriteLine($"Message key: {cr.Message.Key}, value: {cr.Message.Value}");
                 }
                 catch (OperationCanceledException)
