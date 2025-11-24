@@ -8,6 +8,7 @@ namespace Calculator
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            string mariadbCS = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddRazorPages();
             builder.Services.AddHttpClient();
 
