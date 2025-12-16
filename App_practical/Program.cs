@@ -12,6 +12,9 @@ namespace Calculator
             {
                 meterProviderBuilder.AddPrometheusExporter();
 
+                meterProviderBuilder.AddMeter("Microsoft.AspNetCore.Hosting",
+                                      "Microsoft.AspNetCore.Server.Kestrel");
+
                 meterProviderBuilder.AddMeter("Microsoft.AspNetCore.Http.Connections");
 
                 meterProviderBuilder.AddView("http.server.request.duration", 
@@ -47,6 +50,8 @@ namespace Calculator
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapPrometheusScrapingEndpoint();
 
             app.Run();
         }
