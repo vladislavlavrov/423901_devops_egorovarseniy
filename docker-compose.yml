@@ -1,6 +1,6 @@
 ﻿ services:
   web:
-    container_name: 4_calculator-jenkins
+    container_name: 4_calculator-prom
     hostname: app
     build: .
     ports:
