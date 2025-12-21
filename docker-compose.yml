@@ -2,6 +2,6 @@
   web:
     container_name: homework_egorov
     hostname: app
-    build: ./App_Practical
+    build: ./App_practical
     ports:
-      - "0.0.0.0:5204:5004"
+      - "0.0.0.0:5004:5004"
