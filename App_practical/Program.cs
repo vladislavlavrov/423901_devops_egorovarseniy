@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using _4_Calculator.Data;
+using _4_Calculator.Services;
+
 namespace Calculator
 {
     public class Program
@@ -8,6 +12,8 @@ namespace Calculator
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<TemperatureContext>(options => options.UseSqlite("Data Source=temperature.db"));
+            builder.Services.AddScoped<DatabaseInitializer>();
 
             var app = builder.Build();
 
@@ -29,7 +35,15 @@ namespace Calculator
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
+            async Task InitializeDatabase()
+            {
+                using (var scope = app.Services.CreateScope())
+                {
+                    var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
+                    await dbInitializer.InitializeAsync();
+                }
+            }
+            InitializeDatabase().GetAwaiter().GetResult();
             app.Run();
         }
     }
